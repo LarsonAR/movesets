@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css" />
+    <title>Pokémon Moveset Calculator</title>
+</head>
+<body>
+    <div id="app" class="content">
+        <h3>Moveset:</h3>
+        <p><input type="text" v-model="movesText[0]"/></p>
+        <p><input type="text" v-model="movesText[1]"/></p>
+        <p><input type="text" v-model="movesText[2]"/></p>
+        <p><input type="text" v-model="movesText[3]"/></p>
+
+        <p>Version: <select v-model="version">
+            <option v-for="version in versionGroups">{{version}}</option>
+        </select></p>
+
+        <button type="button" @click="getPokemon()">Get List</button>
+        <div class="pure-g">
+            <div class="pkmn pure-u-1-3 pure-u-md-1-6" v-for="result in results">{{result}}</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
